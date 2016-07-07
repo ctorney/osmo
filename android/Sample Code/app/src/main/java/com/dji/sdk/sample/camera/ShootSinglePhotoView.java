@@ -147,6 +147,18 @@ public class ShootSinglePhotoView extends BaseThreeBtnView {
     protected void getRightBtnMethod() {}
 
     @Override
+    protected void getMUpBtnMethod() {}
+
+    @Override
+    protected void getMDownBtnMethod() {}
+
+    @Override
+    protected void getMRightBtnMethod() {}
+
+    @Override
+    protected void getMLeftBtnMethod() {}
+
+    @Override
     protected int getRightBtnTextResourceId() {return R.string.shoot_single_photo;}
 
     @Override

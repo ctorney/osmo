@@ -85,8 +85,8 @@
     <string name="shoot_single_photo_descritpion">Shoot Single Photo</string>
 
     <!-- Record Video View -->
-    <string name="record_video_start_record">Start Record</string>
-    <string name="record_video_stop_record">Stop Record</string>
+    <string name="record_video_start_record">Rec</string>
+    <string name="record_video_stop_record">Stop</string>
     <string name="record_video_initial_time">00:00:00</string>
 
     <!-- Fetch Media View -->

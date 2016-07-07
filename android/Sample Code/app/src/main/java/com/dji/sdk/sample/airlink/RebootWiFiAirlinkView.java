@@ -36,6 +36,18 @@ public class RebootWiFiAirlinkView extends BaseThreeBtnView {
     }
 
     @Override
+    protected void getMUpBtnMethod() {}
+
+    @Override
+    protected void getMDownBtnMethod() {}
+
+    @Override
+    protected void getMRightBtnMethod() {}
+
+    @Override
+    protected void getMLeftBtnMethod() {}
+
+    @Override
     protected int getLeftBtnTextResourceId() {
         return R.string.reboot_wifi_airlink_reboot_wifi;
     }

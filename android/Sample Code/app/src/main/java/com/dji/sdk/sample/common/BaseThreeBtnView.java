@@ -22,6 +22,11 @@ public abstract class BaseThreeBtnView extends RelativeLayout implements View.On
     protected Button leftBtn;
     protected Button rightBtn;
 
+    protected Button mUpBtn;
+    protected Button mDownBtn;
+    protected Button mLeftBtn;
+    protected Button mRightBtn;
+
     public BaseThreeBtnView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initUI(context, attrs);
@@ -31,15 +36,19 @@ public abstract class BaseThreeBtnView extends RelativeLayout implements View.On
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Service.LAYOUT_INFLATER_SERVICE);
 
         View content = layoutInflater.inflate(R.layout.view_three_btn, null, false);
-        //addView(content, new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT .MATCH_PARENT,
-          //      ViewGroup.LayoutParams.MATCH_PARENT));
-        addView(content, new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-              ViewGroup.LayoutParams.WRAP_CONTENT));
+        addView(content, new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT));
+
         mTexInfo = (TextView) findViewById(R.id.text_info);
 
         middleBtn = (Button) findViewById(R.id.btn_middle);
         leftBtn = (Button) findViewById(R.id.btn_left);
         rightBtn = (Button) findViewById(R.id.btn_right);
+
+        mUpBtn = (Button) findViewById(R.id.btn_mup);
+        mDownBtn = (Button) findViewById(R.id.btn_mdown);
+        mLeftBtn = (Button) findViewById(R.id.btn_mleft);
+        mRightBtn = (Button) findViewById(R.id.btn_mright);
 
         mTexInfo.setText(getString(getInfoResourceId()));
 
@@ -50,6 +59,11 @@ public abstract class BaseThreeBtnView extends RelativeLayout implements View.On
         middleBtn.setOnClickListener(this);
         leftBtn.setOnClickListener(this);
         rightBtn.setOnClickListener(this);
+
+        mUpBtn.setOnClickListener(this);
+        mDownBtn.setOnClickListener(this);
+        mLeftBtn.setOnClickListener(this);
+        mRightBtn.setOnClickListener(this);
 
     }
 
@@ -71,6 +85,22 @@ public abstract class BaseThreeBtnView extends RelativeLayout implements View.On
             case R.id.btn_right:
                 getRightBtnMethod();
                 break;
+
+            case R.id.btn_mup:
+                getMUpBtnMethod();
+                break;
+
+            case R.id.btn_mdown:
+                getMDownBtnMethod();
+                break;
+
+            case R.id.btn_mleft:
+                getMLeftBtnMethod();
+                break;
+
+            case R.id.btn_mright:
+                getMRightBtnMethod();
+                break;
         }
     }
 
@@ -83,5 +113,9 @@ public abstract class BaseThreeBtnView extends RelativeLayout implements View.On
     protected abstract void getMiddleBtnMethod();
     protected abstract void getLeftBtnMethod();
     protected abstract void getRightBtnMethod();
+    protected abstract void getMUpBtnMethod();
+    protected abstract void getMDownBtnMethod();
+    protected abstract void getMRightBtnMethod();
+    protected abstract void getMLeftBtnMethod();
 
 }

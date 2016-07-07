@@ -127,6 +127,18 @@ public class IfaPushDataView extends BaseThreeBtnView {
     }
 
     @Override
+    protected void getMUpBtnMethod() {}
+
+    @Override
+    protected void getMDownBtnMethod() {}
+
+    @Override
+    protected void getMRightBtnMethod() {}
+
+    @Override
+    protected void getMLeftBtnMethod() {}
+
+    @Override
     protected int getMiddleBtnTextResourceId() {
         return R.string.compass_calibration_start_calibration;
     }

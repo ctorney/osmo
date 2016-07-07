@@ -93,6 +93,7 @@ public class FetchMediaView extends BaseThreeBtnView {
         return R.string.fetch_media_view_fetch_media;
     }
 
+
     @Override
     protected int getInfoResourceId() {
         if(!DJIModuleVerificationUtil.isMediaManagerAvailable()){
@@ -171,6 +172,18 @@ public class FetchMediaView extends BaseThreeBtnView {
             });
         }
     }
+
+    @Override
+    protected void getMUpBtnMethod() {}
+
+    @Override
+    protected void getMDownBtnMethod() {}
+
+    @Override
+    protected void getMRightBtnMethod() {}
+
+    @Override
+    protected void getMLeftBtnMethod() {}
 
     @Override
     protected void getRightBtnMethod() {

@@ -6,19 +6,38 @@
         android:orientation="vertical"
         android:background="#FFFFFF"
         android:clickable="true"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        tools:context="com.dji.sdk.sample.common.MainActivity"
     android:weightSum="1">
 
     <com.dji.sdk.sample.common.BaseFpvView style="@style/fpv"
-        android:layout_marginTop="-50dp"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        android:layout_marginTop="-150dp"
+        android:layout_marginBottom="-150dp"
+        android:layout_marginRight="-150dp"
+        android:layout_marginLeft="-150dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <LinearLayout
-        android:layout_width="374dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="-350dp">
+        <TextView
+            android:id="@+id/text_info"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="test"
+            android:textColor="@color/background_material_light"
+            android:background="#01ffffff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="-200dp"
+        android:layout_marginTop="225dp"
         android:orientation="horizontal"
         android:weightSum="1">
         <Button
@@ -28,7 +47,9 @@
            android:layout_marginTop="0dp"
            style="@style/common_button"
             android:layout_marginLeft="10dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_width="50dp"
+            android:layout_weight="0.00" />
 
        <Button
            android:id="@+id/btn_middle"
@@ -40,7 +61,8 @@
            android:layout_toLeftOf="@id/btn_left"
            style="@style/common_button"
            android:text="Fetch Thumbnail"
-           android:layout_height="match_parent" />
+           android:layout_height="match_parent"
+           android:layout_width="21dp" />
 
        <Button
            android:id="@+id/btn_right"
@@ -51,22 +73,69 @@
            android:layout_toRightOf="@id/btn_middle"
            style="@style/common_button"
            android:layout_marginRight="20dp"
-           android:layout_height="match_parent" />
+           android:layout_height="match_parent"
+           android:layout_width="50dp"
+           android:layout_weight="0.00" />
+
+        <Button
+            style="@style/common_button"
+            android:id="@+id/btn_mup"
+            android:layout_below="@id/text_info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/btn_middle"
+            android:layout_marginRight="2dp"
+            android:layout_height="match_parent"
+            android:layout_width="40dp"
+            android:layout_gravity="right"
+            android:text="U" />
+
+        <Button
+            style="@style/common_button"
+            android:id="@+id/btn_mdown"
+            android:layout_below="@id/text_info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/btn_middle"
+            android:layout_marginRight="2dp"
+            android:layout_height="match_parent"
+            android:layout_width="40dp"
+            android:layout_weight="0.00"
+            android:text="D" />
+
+        <Button
+            style="@style/common_button"
+            android:id="@+id/btn_mleft"
+            android:layout_below="@id/text_info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/btn_middle"
+            android:layout_marginRight="2dp"
+            android:layout_height="match_parent"
+            android:layout_width="40dp"
+            android:layout_weight="0.00"
+            android:text="L" />
+
+        <Button
+            style="@style/common_button"
+            android:id="@+id/btn_mright"
+            android:layout_below="@id/text_info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/btn_middle"
+            android:layout_marginRight="2dp"
+            android:layout_height="match_parent"
+            android:layout_width="40dp"
+            android:layout_weight="0.00"
+            android:layout_gravity="right"
+            android:text="R" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-           android:id="@+id/text_info"
-           android:layout_width="match_parent"
-           android:layout_height="114dp"
-           android:layout_centerHorizontal="true"
-           android:layout_marginTop="10dp"
-           android:gravity="center"
-           android:text="test"/>
-    </LinearLayout>
+
 
 </LinearLayout>
