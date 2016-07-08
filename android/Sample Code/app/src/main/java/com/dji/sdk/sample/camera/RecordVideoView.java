@@ -38,6 +38,12 @@ import dji.sdk.Gimbal.DJIGimbal;
 public class RecordVideoView extends BaseThreeBtnView {
 
     Timer timer = new Timer();
+
+    private Timer mTimer;
+    private GimbalRotateTimerTask mGimbalRotationTimerTask;
+
+    private DJIGimbal.DJIGimbalSpeedRotation mPitchSpeedRotation;
+
     private final Context context;
     private long timeCounter = 0;
     private long hours = 0;
@@ -68,13 +74,33 @@ public class RecordVideoView extends BaseThreeBtnView {
             public void onResult(DJIError error) {
             }
         });
+
+
+        DJIGimbal.DJIGimbalAngleRotation mPitch;
+        DJIGimbal.DJIGimbalAngleRotation mRoll;
+        DJIGimbal.DJIGimbalAngleRotation mYaw;
+
+        mPitch = new DJIGimbal.DJIGimbalAngleRotation(true, 0.0f, DJIGimbal.DJIGimbalRotateDirection.CounterClockwise);
+        mRoll = new DJIGimbal.DJIGimbalAngleRotation(true, 0.0f, DJIGimbal.DJIGimbalRotateDirection.CounterClockwise);
+        mYaw = new DJIGimbal.DJIGimbalAngleRotation(true, 0.0f, DJIGimbal.DJIGimbalRotateDirection.CounterClockwise);
+        DJISampleApplication.getProductInstance().getGimbal().rotateGimbalByAngle(DJIGimbal.DJIGimbalRotateAngleMode.AbsoluteAngle, mPitch, mRoll, mYaw, new DJIBaseComponent.DJICompletionCallback() {
+            @Override
+            public void onResult(DJIError error) {
+                if (error == null) {
+                    Utils.setResultToToast(getContext(), "move gimbal: success");
+                } else {
+                    Utils.setResultToToast(getContext(), error.getDescription());
+                }
+
+            }
+        });
         if (DJIModuleVerificationUtil.isCameraModuleAvailable()) {
             DJISampleApplication.getProductInstance().getCamera().setCameraMode(
                     DJICameraSettingsDef.CameraMode.RecordVideo,
                     new DJIBaseComponent.DJICompletionCallback() {
                         @Override
                         public void onResult(DJIError djiError) {
-                            Utils.setResultToToast(getContext(), "SetCameraMode to recordVideo");
+
                         }
                     }
             );
@@ -223,6 +249,12 @@ public class RecordVideoView extends BaseThreeBtnView {
             DJISampleApplication.getProductInstance().getGimbal().rotateGimbalByAngle(DJIGimbal.DJIGimbalRotateAngleMode.RelativeAngle, mPitch, mRoll, mYaw, new DJIBaseComponent.DJICompletionCallback() {
                 @Override
                 public void onResult(DJIError error) {
+                    if (error == null) {
+                        Utils.setResultToToast(getContext(), "take photo: success");
+                    } else {
+                        Utils.setResultToToast(getContext(), error.getDescription());
+                    }
+
                 }
             });
             DJISampleApplication.getProductInstance().getGimbal().setGimbalWorkMode(DJIGimbal.DJIGimbalWorkMode.FreeMode, new DJIBaseComponent.DJICompletionCallback() {
@@ -317,6 +349,34 @@ public class RecordVideoView extends BaseThreeBtnView {
 
     @Override
     protected void getMiddleBtnMethod() {
+
+    }
+
+    class GimbalRotateTimerTask extends TimerTask {
+        DJIGimbal.DJIGimbalSpeedRotation mPitch;
+        DJIGimbal.DJIGimbalSpeedRotation mRoll;
+        DJIGimbal.DJIGimbalSpeedRotation mYaw;
+
+        GimbalRotateTimerTask(DJIGimbal.DJIGimbalSpeedRotation pitch, DJIGimbal.DJIGimbalSpeedRotation roll, DJIGimbal.DJIGimbalSpeedRotation yaw) {
+            super();
+            this.mPitch = pitch;
+            this.mRoll = roll;
+            this.mYaw = yaw;
+        }
+        @Override
+        public void run() {
+            if (DJIModuleVerificationUtil.isGimbalModuleAvailable()) {
+                DJISampleApplication.getProductInstance().getGimbal().
+                        rotateGimbalBySpeed(mPitch, mRoll, mYaw,
+                                new DJIBaseComponent.DJICompletionCallback() {
+
+                                    @Override
+                                    public void onResult(DJIError error) {
+
+                                    }
+                                });
+            }
+        }
 
     }
 }

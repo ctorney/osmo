@@ -23,7 +23,7 @@
         android:orientation="horizontal"
         android:layout_marginTop="-350dp">
         <TextView
-            android:id="@+id/text_info"
+            android:id="@+id/text_info2"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_centerHorizontal="true"
@@ -51,38 +51,43 @@
             android:layout_width="50dp"
             android:layout_weight="0.00" />
 
-       <Button
-           android:id="@+id/btn_middle"
-           android:layout_below="@id/text_info"
-           android:layout_centerHorizontal="true"
-           android:layout_marginRight="0dp"
-           android:layout_marginLeft="5dp"
-           android:layout_marginTop="0dp"
-           android:layout_toLeftOf="@id/btn_left"
-           style="@style/common_button"
-           android:text="Fetch Thumbnail"
-           android:layout_height="match_parent"
-           android:layout_width="21dp" />
-
-       <Button
+        <Button
            android:id="@+id/btn_right"
            android:layout_below="@id/text_info"
            android:layout_centerHorizontal="true"
            android:layout_marginLeft="5dp"
            android:layout_marginTop="0dp"
-           android:layout_toRightOf="@id/btn_middle"
+           android:layout_toRightOf="@id/btn_left"
            style="@style/common_button"
            android:layout_marginRight="20dp"
            android:layout_height="match_parent"
            android:layout_width="50dp"
            android:layout_weight="0.00" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/text_info"
+            android:layout_weight="0.00" />
+
+        <Button
+            android:id="@+id/btn_middle"
+            android:layout_below="@id/text_info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            style="@style/common_button"
+            android:text="Fetch Thumbnail"
+            android:layout_height="match_parent"
+            android:layout_width="21dp" />
+
         <Button
             style="@style/common_button"
             android:id="@+id/btn_mup"
             android:layout_below="@id/text_info"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="250dp"
+            android:layout_marginLeft="180dp"
             android:layout_marginTop="0dp"
             android:layout_toRightOf="@id/btn_middle"
             android:layout_marginRight="2dp"

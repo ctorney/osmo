@@ -17,21 +17,6 @@
             android:orientation="vertical">
 
 
-            <com.dji.sdk.sample.common.ListViewItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                set:list_item_name="@string/component_listview_camera"
-                set:sub_Layout="@layout/content_camera">
-
-            </com.dji.sdk.sample.common.ListViewItem>
-
-            <com.dji.sdk.sample.common.ListViewItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                set:list_item_name="@string/component_listview_gimbal"
-                set:sub_Layout="@layout/content_gimbal">
-
-            </com.dji.sdk.sample.common.ListViewItem>
 
             <com.dji.sdk.sample.common.ListViewItem
                 android:layout_width="wrap_content"
